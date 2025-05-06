@@ -43,18 +43,24 @@
                 </nav>
             </div>
             <div class="h-header__contact">
-                <a href="#contact" class="h-btn h-btn--primary">
-                    <span class="h-btn__content">お問い合わせ</span>
+                <a href="#contact" class="h-btn h-btn--primary h-btn--stack">
+                    <div class="h-btn__content">
+                        <span class="h-btn__stack-main">お問い合わせ</span>
+                        <span class="h-btn__stack-sub">お気軽にどうぞ</span>
+                    </div>
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- メインビジュアル -->
+    <!-- メインビジュアル - BEB5スタイル -->
     <div class="my-head">
-        <div class="h-key-visual my-head__key-visual" style="background-image:url('img/friendly staff members.jpg');">
+        <div class="h-key-visual my-head__key-visual h-key-visual--slanting-mask" style="background-image:url('img/friendly staff members.jpg'); background-position: center bottom;">
             <div class="my-head__overlay">
                 <div class="my-head__content">
+                    <h1 class="my-head__logo">
+                        <img src="img/friendly staff members.jpg" alt="株式会社サンコーネーム" class="my-head__logo__img my-head__logo__img--loaded">
+                    </h1>
                     <h2 class="my-head__title">就労継続支援B型事業所</h2>
                     <p class="my-head__subtitle">障がいのある方の就労と自立をサポート</p>
                 </div>
@@ -62,34 +68,42 @@
         </div>
     </div>
 
-    <!-- ローカルナビゲーション -->
-    <div class="my-local-navi-wrapper">
-        <nav class="my-local-navi">
-            <ul class="my-local-navi__list">
-                <li class="my-local-navi__item"><a href="#about" class="my-local-navi__link">事業所について</a></li>
-                <li class="my-local-navi__item"><a href="#service" class="my-local-navi__link">サービス内容</a></li>
-                <li class="my-local-navi__item"><a href="#facility" class="my-local-navi__link">施設紹介</a></li>
-                <li class="my-local-navi__item"><a href="#access" class="my-local-navi__link">アクセス</a></li>
-                <li class="my-local-navi__item"><a href="#contact" class="my-local-navi__link">お問い合わせ</a></li>
+    <!-- ローカルナビゲーション - BEB5スタイル -->
+    <div class="my-hotel-local-navi-wrapper">
+        <nav class="my-hotel-local-navi">
+            <ul class="my-hotel-local-navi__list">
+                <li class="my-hotel-local-navi__item"><a href="#about" class="my-hotel-local-navi__link nuxt-link-active">事業所について</a></li>
+                <li class="my-hotel-local-navi__item"><a href="#service" class="my-hotel-local-navi__link">サービス内容</a></li>
+                <li class="my-hotel-local-navi__item"><a href="#facility" class="my-hotel-local-navi__link">施設紹介</a></li>
+                <li class="my-hotel-local-navi__item"><a href="#access" class="my-hotel-local-navi__link">アクセス</a></li>
+                <li class="my-hotel-local-navi__item"><a href="#contact" class="my-hotel-local-navi__link">お問い合わせ</a></li>
             </ul>
         </nav>
     </div>
 
     <!-- メインコンテンツ -->
     <main class="main-content">
-        <!-- 事業所について -->
+        <!-- 事業所について - BEB5スタイル -->
         <section id="about" class="section">
             <div class="section__inner">
                 <h2 class="section__title">事業所について</h2>
                 <div class="section__content">
+                    <!-- BEB5スタイルの創造的なテキストスタイリング -->
+                    <div class="cms-content">
+                        <p class="cms-para cms-para--rotate-right">
+                            <span class="cms-fs-xl">安心してチャレンジできる環境を提供します</span>
+                        </p>
+                        <p class="cms-para">
+                            株式会社サンコーネームの就労継続支援B型事業所は、障がいのある方が自分のペースで働きながら、
+                            スキルを身につけ、社会参加を実現するための場所です。
+                        </p>
+                        <p class="cms-para cms-para--rotate-left">
+                            <span class="cms-fs-lg">一人ひとりの個性や能力を尊重し、安心して挑戦できる環境を整えています。</span>
+                        </p>
+                    </div>
+                    
                     <div class="about-grid">
                         <div class="about-grid__text">
-                            <h3 class="about-grid__heading">安心してチャレンジできる環境を提供します</h3>
-                            <p class="about-grid__description">
-                                株式会社サンコーネームの就労継続支援B型事業所は、障がいのある方が自分のペースで働きながら、
-                                スキルを身につけ、社会参加を実現するための場所です。一人ひとりの個性や能力を尊重し、
-                                安心して挑戦できる環境を整えています。
-                            </p>
                             <ul class="about-grid__list">
                                 <li class="about-grid__item">
                                     <i class="about-grid__icon"></i>
@@ -248,10 +262,22 @@
                                 <h4 class="contact-grid__method-title">電話でのお問い合わせ</h4>
                                 <p class="contact-grid__phone">06-XXXX-XXXX</p>
                                 <p class="contact-grid__hours">受付時間：平日 9:00〜18:00</p>
+                                <a href="tel:06XXXXXXXX" class="h-btn h-btn--primary h-btn--stack">
+                                    <div class="h-btn__content">
+                                        <span class="h-btn__stack-main">お電話する</span>
+                                        <span class="h-btn__stack-sub">06-XXXX-XXXX</span>
+                                    </div>
+                                </a>
                             </div>
                             <div class="contact-grid__method">
                                 <h4 class="contact-grid__method-title">メールでのお問い合わせ</h4>
                                 <p class="contact-grid__email">info@sanko-name.co.jp</p>
+                                <a href="mailto:info@sanko-name.co.jp" class="h-btn h-btn--secondary h-btn--stack">
+                                    <div class="h-btn__content">
+                                        <span class="h-btn__stack-main">メールを送る</span>
+                                        <span class="h-btn__stack-sub">info@sanko-name.co.jp</span>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                         <div class="contact-grid__image">

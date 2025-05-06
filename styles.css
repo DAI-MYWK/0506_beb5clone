@@ -1,6 +1,6 @@
 /* 
  * 株式会社サンコーネーム - 就労継続支援B型事業所
- * スタイルシート
+ * スタイルシート - BEB5軽井沢デザイン参考
  */
 
 /* 変数定義 */
@@ -38,6 +38,10 @@
     --border-radius: 4px;
     --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
+    
+    /* BEB5スタイル特有の変数 */
+    --slanting-angle: -3deg;
+    --slanting-angle-reverse: 3deg;
 }
 
 /* リセット */
@@ -181,9 +185,11 @@ img {
     margin-top: var(--spacing-xs);
 }
 
-/* ボタン */
+/* ボタン - BEB5スタイル */
 .h-btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: var(--spacing-sm) var(--spacing-lg);
     border-radius: var(--border-radius);
     font-weight: 500;
@@ -191,6 +197,17 @@ img {
     cursor: pointer;
     transition: var(--transition);
     border: none;
+    min-width: 120px;
+    position: relative;
+    overflow: hidden;
+}
+
+.h-btn__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .h-btn--primary {
@@ -213,12 +230,49 @@ img {
     color: var(--color-white);
 }
 
+/* BEB5スタイルのスタックボタン */
+.h-btn--stack {
+    padding: var(--spacing-md) var(--spacing-lg);
+    min-height: 64px;
+}
+
+.h-btn__stack-main {
+    font-size: var(--font-size-md);
+    font-weight: 700;
+}
+
+.h-btn__stack-sub {
+    font-size: var(--font-size-xs);
+    opacity: 0.9;
+    margin-top: 2px;
+}
+
+/* BEB5スタイルのプレーンボタン */
+.h-btn--plain {
+    background: transparent;
+    color: var(--color-secondary);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    min-width: auto;
+}
+
+.h-btn--plain:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* BEB5スタイルの小さいボタン */
+.h-btn--sm {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-size-sm);
+    min-width: 80px;
+}
+
 /* メインビジュアル */
 .my-head {
     margin-top: 60px;
     position: relative;
     height: 70vh;
     min-height: 500px;
+    overflow: hidden;
 }
 
 .h-key-visual {
@@ -229,22 +283,53 @@ img {
     position: relative;
 }
 
+/* BEB5スタイルの斜めマスク効果 */
+.h-key-visual--slanting-mask::after {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    left: 0;
+    width: 120%;
+    height: 20%;
+    background-color: var(--color-white);
+    transform: rotate(3deg);
+    z-index: 2;
+}
+
 .my-head__overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1;
 }
 
 .my-head__content {
     text-align: center;
     color: var(--color-white);
     padding: var(--spacing-xl);
+    position: relative;
+    z-index: 3;
+}
+
+.my-head__logo {
+    max-width: 300px;
+    margin: 0 auto var(--spacing-xl);
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.my-head__logo__img {
+    width: 100%;
+    height: auto;
+}
+
+.my-head__logo__img--loaded {
+    opacity: 1;
 }
 
 .my-head__title {
@@ -252,15 +337,91 @@ img {
     font-weight: 700;
     margin-bottom: var(--spacing-md);
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1s ease-in-out 0.3s both;
 }
 
 .my-head__subtitle {
     font-size: var(--font-size-xl);
     font-weight: 500;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1s ease-in-out 0.6s both;
 }
 
-/* ローカルナビゲーション */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ローカルナビゲーション - BEB5スタイル */
+.my-hotel-local-navi-wrapper {
+    background-color: var(--color-white);
+    position: sticky;
+    top: 60px;
+    z-index: 900;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.my-hotel-local-navi {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.my-hotel-local-navi__list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.my-hotel-local-navi__item {
+    position: relative;
+}
+
+.my-hotel-local-navi__link {
+    display: block;
+    padding: var(--spacing-md) var(--spacing-lg);
+    color: var(--color-text);
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+.my-hotel-local-navi__link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--color-primary);
+    transition: var(--transition);
+}
+
+.my-hotel-local-navi__link:hover::after,
+.my-hotel-local-navi__link.nuxt-link-active::after {
+    width: 100%;
+}
+
+.my-hotel-local-navi__link:hover {
+    color: var(--color-primary);
+}
+
+.my-hotel-local-navi__link.nuxt-link-active {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+/* 旧ナビゲーションのスタイルも残しておく（互換性のため） */
 .my-local-navi-wrapper {
     background-color: var(--color-secondary);
     position: sticky;
@@ -339,12 +500,48 @@ img {
     margin-top: var(--spacing-xl);
 }
 
-/* 事業所について */
+/* 事業所について - BEB5スタイル */
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-xxl);
     align-items: center;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+/* BEB5スタイルの創造的なテキストスタイリング */
+.cms-content {
+    font-size: 16px;
+    line-height: 32px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.cms-para {
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+}
+
+.cms-para--rotate-right {
+    transform: rotate(var(--slanting-angle-reverse));
+    margin-top: 15px;
+}
+
+.cms-para--rotate-left {
+    transform: rotate(var(--slanting-angle));
+    margin-top: 30px;
+}
+
+.cms-fs-lg {
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.cms-fs-xl {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-primary);
 }
 
 .about-grid__heading {
@@ -352,6 +549,7 @@ img {
     font-weight: 700;
     color: var(--color-primary);
     margin-bottom: var(--spacing-lg);
+    position: relative;
 }
 
 .about-grid__description {
@@ -380,6 +578,25 @@ img {
 .about-grid__image img {
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+}
+
+@media all and (min-width:768px) {
+    .cms-content {
+        font-size: 18px;
+        line-height: 42px;
+        width: 1024px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 40px;
+    }
+    
+    .cms-fs-lg {
+        font-size: 28px;
+    }
+    
+    .cms-fs-xl {
+        font-size: 32px;
+    }
 }
 
 /* サービス内容 */
