@@ -1,0 +1,106 @@
+
+wireframe:
+  header:
+    components:
+      - notification_banner: 
+          type: overlay
+          removable: true
+      - logo: 
+          type: image
+          link: "https://hoshinoresorts.com/jp/"
+      - hotel_logo:
+          type: image
+          link: "/ja/hotels/beb5karuizawa/"
+      - search_button: true
+      - menu_toggle: true
+      - booking_buttons:
+          - primary_button: "空室検索"
+          - secondary_button: "＋航空券"
+  
+  main_content:
+    hero_section:
+      - key_visual:
+          type: background_image
+          url: "https://media.hoshinoresorts.com/image/authenticated/s--yWmxdIIk--/c_fill,g_auto,h_1436,w_2048/f_auto,q_auto/v1717992931/BEB5%E8%BB%BD%E4%BA%95%E6%B2%A2_TAMARIBA_%E4%B8%AD%E5%BA%AD%E4%BA%BA%E3%81%AA%E3%81%97_iszjlw.jpg"
+      - hotel_logo:
+          type: image
+          url: "https://media.hoshinoresorts.com/image/authenticated/s--xL8ToTA3--/c_fill,g_auto,h_290/f_auto,q_auto/v1735267593/%E4%BD%99%E7%99%BD%E8%AA%BF%E6%95%B4%E8%BB%BD%E4%BA%95%E6%B2%A2%E6%97%A5%E6%9C%AC%E8%AA%9E-removebg-preview_atcium.png"
+      - gallery_button:
+          type: button
+          text: "+27"
+    
+    introduction_section:
+      - image:
+          url: "https://assets-gf.hoshinoresorts.com/res/hotels/beb5karuizawa/lead-ja.png"
+          alt: "なにして休む？"
+      - paragraphs:
+          - "BEBは居酒屋以上、旅未満のルーズなホテル"
+          - "カフェラウンジは持ち込みOKで24時間オープン"
+          - "客室は秘密基地みたいに遊び心たっぷり"
+    
+    navigation:
+      type: horizontal_menu
+      items:
+        - text: "HOME"
+          link: "/ja/hotels/beb5karuizawa/"
+          active: true
+        - text: "過ごしかた"
+          link: "/ja/hotels/beb5karuizawa/todo/"
+        - text: "アクティビティ"
+          link: "/ja/hotels/beb5karuizawa/activities/"
+        - text: "ダイニング"
+          link: "/ja/hotels/beb5karuizawa/dining/"
+
+  responsive_design:
+    breakpoints:
+      - mobile: "max-width: 320px"
+      - tablet: "min-width: 768px"
+      - narrow: "custom media query condition"
+
+technology_stack:
+  frontend:
+    framework: 
+      name: "Nuxt.js"
+      based_on: "Vue.js"
+      rendering: "Server-Side Rendering (SSR)"
+    
+    styling:
+      - CSS3
+      - Media Queries for responsive design
+      - Custom CSS components with BEM-like naming convention
+    
+    javascript:
+      - Vue.js components
+      - Custom components with prefixes (h-, my-, v-)
+    
+    ui_components:
+      - Custom button components
+      - Navigation components
+      - Key visual components
+      - Notification components
+    
+  analytics:
+    - Google Tag Manager (GTM-MDGZBP)
+  
+  media:
+    - Cloudinary or similar image CDN (based on URL patterns)
+    - SVG icons
+  
+  multilingual_support:
+    languages:
+      - Japanese (ja)
+      - English (en)
+      - Simplified Chinese (zh_cn)
+      - Traditional Chinese (zh_tw)
+      - Korean (ko)
+    
+  seo:
+    - Structured data (JSON-LD)
+    - Meta tags
+    - Open Graph tags
+    - Twitter Card tags
+
+  performance_optimization:
+    - Preloading key images
+    - Async loading of scripts
+    - SVG icons for faster loading

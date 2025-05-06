@@ -1,0 +1,327 @@
+
+header_section:
+  code_characteristics:
+    naming_convention: "BEM-like with 'h-' prefix for header components"
+    component_structure: "Modular components with nested elements"
+    responsive_design: true
+  libraries_used:
+    - "Nuxt.js (Vue.js framework) with SSR"
+    - "Custom icon system"
+    - "Google Tag Manager"
+  css_features:
+    - class: "h-header"
+      description: "Main header container"
+    - class: "h-notification"
+      description: "Notification banner system with toggle functionality"
+      code_example: |
+        <div class="h-notification h-notification--overlay h-header__notification h-notification--removable">
+          <dl class="h-notification__inner">
+            <dt class="h-notification__header">
+              <i class="h-notification__header__icon h-icon h-icon-exclamation-outline"></i>
+              <div class="h-notification__header__title">お知らせ</div>
+              <div class="h-notification__header__toggle">
+                <i class="h-notification__header__toggle__icon h-icon h-icon-keyboard-arrow-down"></i>
+              </div>
+              <button type="button" class="h-notification__remove">
+                <i class="h-notification__remove__icon h-icon h-icon-close"></i>
+              </button>
+            </dt>
+          </dl>
+        </div>
+    - class: "h-header__logo"
+      description: "Logo container with responsive sizing"
+    - class: "h-header__to-booking"
+      description: "Booking button container"
+  js_features:
+    - feature: "Toggle notification visibility"
+      description: "JavaScript toggles notification panel visibility"
+    - feature: "Responsive menu"
+      description: "Menu toggle for mobile devices"
+
+hero_section:
+  code_characteristics:
+    naming_convention: "Mixed 'my-' and 'h-' prefixes"
+    animation: "Custom animation for logo appearance"
+    background_handling: "Background image with positioning control"
+  libraries_used:
+    - "Vue.js components"
+    - "CSS transitions"
+  css_features:
+    - class: "my-head"
+      description: "Main hero section container"
+    - class: "h-key-visual"
+      description: "Background image container with mask effect"
+      code_example: |
+        <div class="h-key-visual my-head__key-visual h-key-visual--slanting-mask" 
+             style="background-position:bottom;
+                    background-image:url(https://media.hoshinoresorts.com/image/authenticated/s--7d7I6ImH--/c_fill,g_auto,h_1436,w_2048/f_auto,q_auto/v1746489403/BEB5_karuizawa_201905_032_wz1zl5.jpg);">
+        </div>
+    - class: "my-head__logo"
+      description: "Logo with loading animation"
+      code_example: |
+        <h1 class="my-head__logo">
+          <img src="..." alt="BEB5軽井沢 by 星野リゾート" 
+               class="my-head__logo__img my-head__logo__img--loaded">
+        </h1>
+  js_features:
+    - feature: "Image preloading"
+      description: "Key images are preloaded for performance"
+      code_example: |
+        <link data-n-head="ssr" data-hid="..." rel="preload" 
+              href="https://media.hoshinoresorts.com/image/authenticated/..." as="image">
+    - feature: "Animation state tracking"
+      description: "CSS classes track animation state (--anim-logo-not-ended)"
+
+introduction_section:
+  code_characteristics:
+    naming_convention: "Custom 'cms-' prefix for content components"
+    text_styling: "Creative text styling with rotations and size variations"
+    responsive_layout: "Different layouts for mobile and desktop"
+  libraries_used:
+    - "Custom CSS for creative text presentation"
+  css_features:
+    - class: "cms-beb5karuizawa"
+      description: "Container for introduction content"
+    - class: "cms-para"
+      description: "Paragraph with creative styling"
+      code_example: |
+          transform: rotate(5deg);
+          margin-top: 15px;
+        }
+        
+          transform: rotate(-3deg);
+          margin-top: 30px;
+        }
+    - class: "cms-fs-lg"
+      description: "Large font size for emphasis"
+      code_example: |
+          font-size: 19px;
+        }
+        
+        @media all and (min-width:768px) {
+            font-size: 28px;
+          }
+        }
+  responsive_design:
+    - breakpoint: "max-width:320px"
+      changes: "Smaller font sizes and adjusted image positioning"
+    - breakpoint: "min-width:768px"
+      changes: "Larger font sizes, wider container, and different layout"
+      code_example: |
+        @media all and (min-width:768px) {
+            font-size: 18px;
+            line-height: 42px;
+            width: 1024px;
+            margin-top: -10px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-bottom: 40px;
+          }
+        }
+
+navigation_section:
+  code_characteristics:
+    naming_convention: "Mixed 'my-' and 'h-' prefixes"
+    component_structure: "Nested list structure for navigation items"
+  libraries_used:
+    - "Nuxt.js router integration"
+  css_features:
+    - class: "my-hotel-local-navi"
+      description: "Local navigation container"
+    - class: "my-hotel-local-navi__item"
+      description: "Navigation item"
+    - class: "nuxt-link-active"
+      description: "Active link styling from Nuxt.js"
+  js_features:
+    - feature: "Active link tracking"
+      description: "Nuxt.js automatically adds active classes to current route links"
+      code_example: |
+        <a href="/ja/hotels/beb5karuizawa/" aria-current="page" 
+           class="my-hotel-local-navi__link h-navigation-item nuxt-link-exact-active nuxt-link-active">
+          HOME
+        </a>
+
+footer_section:
+  code_characteristics:
+    naming_convention: "BEM-like with 'h-' prefix"
+    component_structure: "Modular components with nested elements"
+  libraries_used:
+    - "Vue.js components"
+    - "Custom icon system"
+  css_features:
+    - class: "h-footer"
+      description: "Main footer container"
+    - class: "h-footer__nav"
+      description: "Footer navigation"
+    - class: "h-footer__copyright"
+      description: "Copyright information"
+
+javascript_libraries:
+  framework:
+    name: "Nuxt.js"
+    version: "Based on Vue.js"
+    features:
+      - "Server-Side Rendering (SSR)"
+      - "Component-based architecture"
+      - "Client-side routing"
+      - "Code splitting"
+    code_example: |
+      <div data-server-rendered="true" id="__nuxt">
+        <div id="__layout">
+          <div class="h-app h-default-layout">
+            <!-- Content -->
+          </div>
+        </div>
+      </div>
+  
+  analytics:
+    name: "Google Tag Manager"
+    code_example: |
+      <script data-n-head="ssr" src="//www.googletagmanager.com/gtm.js?id=GTM-MDGZBP&amp;l=GF_dataLayer" async></script>
+      <noscript data-n-head="ssr" data-hid="gtm-noscript" data-pbody="true">
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MDGZBP&l=GF_dataLayer" 
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+      </noscript>
+  
+  seo:
+    name: "Structured Data (JSON-LD)"
+    description: "Schema.org Hotel data structure"
+    code_example: |
+      <script data-n-head="ssr" data-hid="structured-data" type="application/ld+json">
+        {"@context":"https://schema.org","@type":"Hotel","name":"BEB5軽井沢 by 星野リゾート",
+         "address":"長野県軽井沢町星野","url":"https://hoshinoresorts.com/ja/hotels/beb5karuizawa/",
+         "parentOrganization":{"@type":"Organization","name":"星野リゾート",
+         "url":"https://hoshinoresorts.com/jp/"},"checkIn":"15:00","checkOut":"11:00",
+         "numberOfRooms":73,"brand":"BEB","petsAllowed":"allowed"}
+      </script>
+  
+  custom_components:
+    - name: "v-stack"
+      description: "Custom stacking component system"
+      code_example: |
+        <div class="v-stack-context" style="background-color:#fff;color:rgba(0, 0, 0, 0.87);">
+          <div v-stack-container=""></div>
+          <div class="v-stack-dynamic-container"></div>
+        </div>
+    
+    - name: "h-notification"
+      description: "Notification system with toggle functionality"
+
+css_styles:
+  naming_conventions:
+    - prefix: "h-"
+      description: "General Hoshino Resorts components"
+    - prefix: "my-"
+      description: "Page-specific components"
+    - prefix: "v-"
+      description: "Vue-specific components"
+    - prefix: "cms-"
+      description: "Content management components"
+  
+  methodology:
+    name: "BEM-like (Block Element Modifier)"
+    description: "Components use block__element--modifier pattern"
+    code_example: |
+      .h-notification__header__toggle__icon
+      .my-hotel-local-navi__item
+      .h-btn--primary
+  
+  animations:
+    - name: "CSS Transitions"
+      description: "Smooth transitions for UI elements"
+      code_example: |
+        .h-expand-transition-enter-active, .h-expand-transition-leave-active {
+          -webkit-transition: .3s cubic-bezier(.25,.8,.5,1);
+          transition: .3s cubic-bezier(.25,.8,.5,1);
+        }
+    
+    - name: "Keyframe Animations"
+      description: "Complex animations using @keyframes"
+      code_example: |
+        @keyframes h-progress-circular-rotate {
+          to {
+            -webkit-transform: rotate(1turn);
+            transform: rotate(1turn);
+          }
+        }
+  
+  icon_system:
+    name: "Custom Icon Font"
+    description: "Icon font with over 80 custom icons"
+    code_example: |
+      @font-face {
+        font-family: "icons";
+        src: url(/_nuxt/fonts/icons.026c83a.eot?#iefix) format("embedded-opentype"),
+             url(/_nuxt/fonts/icons.6c1d085.woff2) format("woff2"),
+             url(/_nuxt/fonts/icons.1292c2d.woff) format("woff"),
+             url(/_nuxt/fonts/icons.b1e514f.ttf) format("truetype"),
+             url(/_nuxt/img/icons.147176f.svg#icons) format("svg")
+      }
+      
+      i[class*=" h-icon-"]:before, i[class^=h-icon-]:before {
+        font-family: icons!important;
+        font-style: normal;
+        font-weight: 400!important;
+        -webkit-font-feature-settings: normal;
+        font-feature-settings: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+  
+  responsive_design:
+    approach: "Mobile-first with breakpoints"
+    breakpoints:
+      - name: "Mobile small"
+        query: "max-width: 320px"
+      - name: "Tablet/Desktop"
+        query: "min-width: 768px"
+      - name: "Custom media queries"
+        query: "this.$mq.condition('narrow')"
+    code_example: |
+      @media {{ this.$mq.condition('narrow') }} {
+          background-position: -19vw bottom;
+          background-size: 134vw auto;
+        }
+      }
+  
+  button_system:
+    description: "Comprehensive button component system"
+    variations:
+      - "h-btn--default"
+      - "h-btn--primary"
+      - "h-btn--stack"
+      - "h-btn--plain"
+      - "h-btn--sm"
+    code_example: |
+      <a href="/ja/hotels/beb5karuizawa/roomsearch/" 
+         class="h-btn h-hotel-to-booking__action h-hotel-to-booking-action h-btn--stack h-btn--primary">
+        <span class="h-btn__content">
+          <span class="h-btn__stack-main">空室検索</span>
+          <span class="h-btn__stack-sub">当サイトが最もお得</span>
+        </span>
+      </a>
+  
+  special_features:
+    - name: "Creative Text Styling"
+      description: "Rotated text blocks with emoji and varied font sizes"
+      code_example: |
+          transform: rotate(5deg);
+          margin-top: 15px;
+        }
+    
+    - name: "Slanting Mask for Images"
+      description: "Diagonal mask effect for hero images"
+      class: "h-key-visual--slanting-mask"
+    
+    - name: "Progress Indicators"
+      description: "Custom circular and linear progress indicators"
+      code_example: |
+        .h-progress-circular__overlay {
+          z-index: 2;
+          stroke: currentColor;
+          -webkit-transition: all .6s ease-in-out;
+          transition: all .6s ease-in-out;
+        }
