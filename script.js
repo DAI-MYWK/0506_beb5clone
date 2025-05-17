@@ -62,19 +62,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    const lazyImages = document.querySelectorAll('img');
-    
+    const lazyImages = document.querySelectorAll('img[data-src]');
+
     if ('IntersectionObserver' in window) {
         const imageObserver = new IntersectionObserver(function(entries, observer) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
                     const image = entry.target;
-                    image.src = image.src; // 実際のプロジェクトではdata-srcなどの属性を使用
+                    if (image.dataset.src) {
+                        image.src = image.dataset.src; // data-src属性から画像を読み込む
+                        image.removeAttribute('data-src');
+                    }
                     imageObserver.unobserve(image);
                 }
             });
         });
-        
+
         lazyImages.forEach(function(image) {
             imageObserver.observe(image);
         });

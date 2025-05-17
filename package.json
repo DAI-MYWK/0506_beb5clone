@@ -1,0 +1,16 @@
+{
+  "name": "0506_beb5clone",
+  "version": "1.0.0",
+  "description": "このリポジトリは就労継続支援B型事業所\u300c株式会社サンコーネーム\u300dのサンプルサイトです。",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jsdom": "^23.2.0"
+  }
+}
